@@ -1,0 +1,29 @@
+# Ready-to-run companion config — copy me, edit me.
+name: mia
+persona_file: persona-her.md
+
+llm:
+  provider: venice          # venice | grok | longcat | custom
+  temperature: 0.7
+  max_tokens: 160
+
+image:
+  enabled: false            # set true + add base_image to let her send pictures
+  provider: wavespeed
+  model: wavespeed-ai/qwen-image/edit-2511-lora
+  base_image: ./assets/her.png
+  loras: []
+
+voice:
+  enabled: true             # voice notes via SecretVoice
+  provider: secretaudio
+  voice_id: velvet
+  language_code: en
+  settings: { stability: 0.4, similarity_boost: 0.7, style: 0.5, speed: 0.95 }
+
+memory:
+  store: json
+  dir: xfriend_data
+  keep_messages: 16
+  compact_batch: 10
+  facts_max: 40
